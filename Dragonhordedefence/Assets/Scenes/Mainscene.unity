@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 193430657}
   - component: {fileID: 193430656}
   - component: {fileID: 193430655}
+  - component: {fileID: 193430658}
   m_Layer: 0
   m_Name: Airship_0
   m_TagString: Untagged
@@ -204,9 +205,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 193430651}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2582989, y: -0.46991318, z: 0}
+  m_LocalPosition: {x: 5.83, y: 2.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2135528427}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -221,7 +223,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d001e49c9622fa4ba275872ecbe85d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 100
+  Health: 250
+  choosenDeathClip: {fileID: 1658222845395376, guid: 23ef4861b470c454ab1d9bdab074f398,
+    type: 2}
 --- !u!50 &193430656
 Rigidbody2D:
   serializedVersion: 4
@@ -257,6 +261,21 @@ CapsuleCollider2D:
   m_Offset: {x: 0.056535482, y: -0.041116964}
   m_Size: {x: 2.1641796, y: 1.6194}
   m_Direction: 1
+--- !u!114 &193430658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 193430651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c31a235fc0b3345a67c6c34c6ae222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 2135528427}
+  bulletPrefab: {fileID: 1282863642345452, guid: f9114018f3a9a7643a994a82ce55488e,
+    type: 2}
+  startTimeBtwShots: 1.5
 --- !u!1 &322723806
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,7 +720,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1316447917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.41, y: -3.7592862, z: 0}
+  m_LocalPosition: {x: -6.49, y: -3.7592862, z: 0}
   m_LocalScale: {x: 3.8554688, y: 5.2920003, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -958,3 +977,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2135528426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2135528427}
+  m_Layer: 0
+  m_Name: firePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2135528427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135528426}
+  m_LocalRotation: {x: 0, y: 0, z: 0.953717, w: 0.30070582}
+  m_LocalPosition: {x: -0.285, y: -1.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 193430654}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 145}
