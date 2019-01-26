@@ -7,21 +7,26 @@ public class weaponscript : MonoBehaviour {
   
     public Transform firePoint;
     public GameObject bulletPrefab;
-    
+
+    private float timeBtwShots;
+    public float startTimeBtwShots;
 
 
-   
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-            if (Input.GetButtonDown("Fire1"))
+        if (timeBtwShots <= 0)
+        {
+            if (Input.GetMouseButtonDown(0))
             {
-                Shoot();
+                Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                timeBtwShots = startTimeBtwShots;
             }
-    }
-    void Shoot()
-    {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        }
+        else
+        {
+            timeBtwShots -= Time.deltaTime;
+        }
     }
 }
