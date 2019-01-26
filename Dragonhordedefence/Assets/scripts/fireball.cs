@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class fireball : MonoBehaviour
 {
-
+    
+    public int damage = 20;
     public float speed = 20f;
     Rigidbody2D rb;
+    public GameObject hiteffect;
+
     // Use this for initialization
     void Start()
     {
@@ -14,8 +17,14 @@ public class fireball : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        enemyScript enemy = collision.GetComponent<enemyScript>();
+        if (enemy != null)
+        {
+            enemy.TakeDamage(damage);
+        }
+        Instantiate(hiteffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
