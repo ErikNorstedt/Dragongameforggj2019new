@@ -10,7 +10,7 @@ public class weaponscript : MonoBehaviour {
 
     private float timeBtwShots;
     public float startTimeBtwShots;
-
+    public Animator anim;
 
 
     // Update is called once per frame
@@ -20,6 +20,7 @@ public class weaponscript : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
+                anim.SetTrigger("fires");
                 Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
                 timeBtwShots = startTimeBtwShots;
             }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class playerAim : MonoBehaviour {
 
     public Rigidbody2D rb;
-    
+    [SerializeField] float lookingAngle;
 
     // Use this for initialization
     void Start () {
@@ -16,9 +16,6 @@ public class playerAim : MonoBehaviour {
 
     void FixedUpdate()
     {
-        
-
-        
         Vector3 mousepos = Input.mousePosition;
         mousepos = Camera.main.ScreenToWorldPoint(mousepos);
         
@@ -28,7 +25,12 @@ public class playerAim : MonoBehaviour {
             mousepos.y - transform.position.y
             );
 
-        transform.right = direction;
+        if (Vector2.Angle(direction, Vector2.right) < lookingAngle / 2)
+        {
+              transform.right = direction;
+        }
+        
+      
 
        
     }
